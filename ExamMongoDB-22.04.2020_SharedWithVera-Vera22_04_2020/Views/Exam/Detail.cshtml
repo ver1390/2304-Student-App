@@ -1,0 +1,53 @@
+﻿@model ExamMongoDB.Models.Exam
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExamId)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgrammeCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProgrammeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExamDate)
+        </dd>
+
+    </dl>
+
+
+
+
+</div>
+<div>
+    <a asp-action="Enroll" asp-route-id="@Model.ExamId" class="btn btn-info">Enroll</a>
+    <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+</div>
+

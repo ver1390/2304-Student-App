@@ -1,0 +1,126 @@
+﻿@inject UserManager<Student> _userManager;
+@using ExamMongoDB.Identity
+@using Microsoft.AspNetCore.Identity
+@using ExamMongoDB.Models.Repositories;
+
+@model IEnumerable<ExamMongoDB.Identity.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <link href="~/css/enrolltoexam_style.css" rel="stylesheet" type="text/css" />
+
+<div class="text-center mb-5">
+
+    @*<h2 class="display-4">Exam System</h2>*@
+    <h1>Exam System - Admin</h1>
+</div>
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home">Users</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="home" role="tabpanel">
+        <table class="table table-striped">
+            <thead>
+                @*<tr>
+                                <th>
+                                    UserName
+                                </th>
+                                <th>
+                                  ProgrammeCode
+                                </th>
+                                <th>
+                       ProgrammeName
+                    </th>
+                            </tr>*@
+            </thead>
+
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(modelItem => item.UserName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(modelItem => item.Programmes.ProgrammeCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(modelItem => item.Programmes.ProgrammeName)
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Programmes.ProgrammeCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Programmes.ProgrammeName)
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <th>
+                            ExamDate
+                        </th>
+                        <th>
+                            RoomId
+                        </th>
+                        <th>
+                            Mark
+                        </th>
+                        <th>
+                            Enrolled
+                        </th>
+                        <th>
+                            <a href="/MyExamEnrollment/Edit_Admin/@item.UserName" class="btn btn-sm btn-outline-primary">Edit "Admin"</a>
+                            @item.ExamEnrollment.ToArray().Length<br />
+                        </th>
+
+                    </tr>
+
+                   
+                    @for (int i = 0; i < @item.ExamEnrollment.ToArray().Length; i++)
+                    {
+
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamEnrollment[i].ExamDate) <br />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamEnrollment[i].RoomId) <br />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamEnrollment[i].Mark) <br />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamEnrollment[i].Enrolled) <br />
+                </td>
+               
+            </tr>
+
+
+                    }
+
+
+                }
+            </tbody>
+
+
+        </table>
+    </div>
+</div>

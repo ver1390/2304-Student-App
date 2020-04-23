@@ -1,0 +1,24 @@
+@using ExamMongoDB.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Student> SignInManager
+@inject UserManager<Student> UserManager
+
+   
+      
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+        <ul class="navbar-nav mr-auto" navbar-right>
+            @*<li class="nav-item">
+            <a class="btn btn-outline-info" href="/ExamEnrollment/Index" title="Manage">My Exam</a>
+        </li>*@
+
+            <li class="nav-item">
+                <a class="btn btn-outline-info" asp-controller="." asp-action="Exam" asp-rout-id="@Model">Scheduled Exams</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="btn btn-outline-info"  href="/ExamEnrollment/Index"  asp-rout-id="@Model">My enrolled exams</a>
+            </li>
+        </ul>
+    </div>
+   

@@ -1,0 +1,50 @@
+﻿@model ExamViewModel
+
+    @*<form name="form1" asp-controller="Home" asp-action="SelectProgramme">
+        <div class="form-group">
+            <select name="category" id="category" asp-for="ProgrammeId" asp-items="@Model.ProgrammesList" class="btn btn-primary col-4" onchange="DoPostBack();">
+                <option value="-1"> Select Programme</option>
+            </select>
+        </div>
+    </form>*@
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>SubjectCode</th>
+            <th>SubjectName</th>
+            <th>Programme</th>
+            <th>ExamDate</th>
+            <th>Enroll For Exam</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var exam in Model.Exams)
+        {
+            <tr>
+
+
+
+                <td class="text-center">@exam.ExamId</td>
+                <td class="text-center">@exam.SubjectName</td>
+                <td class="text-center">@exam.ProgrammeCode</td>
+                <td class="text-center">@exam.ExamDate</td>
+                <td class="text-left"><a asp-controller="Exam" asp-action="Detail" asp-route-id="@exam.ExamId">@exam.ExamId</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+<script>
+    function DoPostBack() {
+        var select = document.getElementById("ProgrammeId");
+        var option = select.options[select.selectedIndex];
+        if (option.value != "Please select") {
+            document.form1.action = "/Exam/SelectCategory";
+            document.form1.submit();
+        }
+    }
+</script>

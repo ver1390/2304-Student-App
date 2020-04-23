@@ -1,0 +1,69 @@
+﻿@model ExamViewModel
+@*<form name="form1" asp-controller="Home" asp-action="SelectProgramme">
+        <div class="form-group">
+            <select name="category" id="category" asp-for="ProgrammeCode" asp-items="@Model.ProgrammesList" class="btn btn-primary col-4" onchange="DoPostBack();">
+                <option value="-1"> Select Programme</option>
+            </select>
+        </div>
+    </form>*@
+@*////*@
+@*<div class="form-group">
+        <label asp-for="ProgrammeCode" class="control-label"></label>
+        <select asp-for="ProgrammeCode" class="form-control"
+                asp-items="@(new SelectList(Model.Programmes, "ProgrammeCode", "ProgrammeName"))"></select>
+        <span asp-validation-for="ProgrammeCode" class="text-danger"></span>
+    </div>*@
+
+@*/////*@
+
+
+@*<div class="form-group">
+        <a class="btn btn-primary" asp-controller="Exam" asp-action="CreateExam">Add Exam</a>
+    </div>*@
+
+    <link href="~/css/enrolltoexam_style.css" rel="stylesheet" type="text/css" />
+    <h1>Enroll to Exam</h1>
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            @*<th>SubjectCode</th>*@
+            <th>Subject Name</th>
+            <th>Programme</th>
+            <th>Exam Date</th>
+            <th>Details</th>
+            <th>Enroll For Exam</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var exam in Model.Exams)
+        {
+            <tr>
+                @*<td class="text-center">@exam.ExamId</td>*@
+                <td class="text-center">@exam.SubjectName</td>
+                <td class="text-center">@exam.ProgrammeCode</td>
+                <td class="text-center">@exam.ExamDate</td>
+                <td class="text-left"><a asp-controller="Exam" asp-action="Detail" asp-route-id="@exam.ExamId"> @exam.ExamId</a></td>
+                <td class="text-left"><a asp-controller="Exam" asp-action="Enroll" asp-route-id="@exam.ExamId">Enroll</a></td>
+                @*change to select checkboxes? then only 1 enroll button at the end?*@
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
+<script>
+    function DoPostBack() {
+        var select = document.getElementById("category");
+        var option = select.options[select.selectedIndex];
+        if (option.value != "Please select") {
+            document.form1.action = "/exam/SelectProgramme";
+            document.form1.submit();
+        }
+    }
+</script>
