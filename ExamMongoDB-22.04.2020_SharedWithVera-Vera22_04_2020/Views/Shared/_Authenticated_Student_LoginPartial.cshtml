@@ -3,38 +3,37 @@
 @inject SignInManager<Student> SignInManager
 @inject UserManager<Student> UserManager
 
-   
-      
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-        <ul class="navbar-nav mr-auto" navbar-right>
-            @*<li class="nav-item">
-            <a class="btn btn-outline-info" href="/ExamEnrollment/Index" title="Manage">My Exam</a>
-        </li>*@
+<link href="~/css/site.css" rel="stylesheet" type="text/css" />
 
-            <li class="nav-item">
-                <a class="btn btn-outline-info  " asp-controller="." asp-action="Exam" asp-rout-id="@Model">Enroll to Exam</a>
-            </li>
+<div class="collapse navbar-collapse" id="navbarSupportedContent" >
 
-            <li class="nav-item">
-                <a class="btn btn-outline-info" asp-controller="." asp-action="MyExamEnrollment" asp-rout-id="@Model">Exams Enrolled To</a>
-            </li>
+    <ul class="navbar-nav mr-auto" navbar-right>
+        @*<li class="nav-item">
+                <a class="btn btn-outline-info" href="/ExamEnrollment/Index" title="Manage">My Exam</a>
+            </li>*@
 
-            <li class="nav-item">
-                <a class="btn btn-outline-info" asp-controller="." asp-action="EnrollmentAdmin" asp-rout-id="@Model">EnrollmentAdmin</a>
-            </li>
-            <li class="nav-item">
-                <a class="btn btn-outline-info" asp-controller="." asp-action="EnrollmentStudent" asp-rout-id="@Model">EnrollmentStudent</a>
-            </li>
-            @*<li class="nav-item">
-            <a class="btn btn-outline-info" href="/MyExamEnrollment/Index_Admin" asp-rout-id="@Model">Admin MyExamEnrollment</a>
-        </li>*@
+        <li class="nav-item">
+            <a class="btn btn-outline-info  " asp-controller="." asp-action="Exam" asp-rout-id="@Model">Enroll to Exam</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="btn btn-outline-info" asp-controller="." asp-action="MyExamEnrollment" asp-rout-id="@Model">Exams Enrolled To</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="btn btn-outline-info" asp-controller="." asp-action="EnrollmentAdmin" asp-rout-id="@Model">EnrollmentAdmin</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-outline-info" asp-controller="." asp-action="EnrollmentStudent" asp-rout-id="@Model">EnrollmentStudent</a>
+        </li>
+        @*<li class="nav-item">
+                <a class="btn btn-outline-info" href="/MyExamEnrollment/Index_Admin" asp-rout-id="@Model">Admin MyExamEnrollment</a>
+            </li>*@
 
 
 
-            <li class="nav-item">
-                <a class="btn btn-outline-info" href="/ExamEnrollment/Index" asp-rout-id="@Model">Marks</a>
-            </li>
-        </ul>
-    </div>
-   
+        <li class="nav-item">
+            <a class="btn btn-outline-info" href="/ExamEnrollment/Index" asp-rout-id="@Model">Marks</a>
+        </li>
+    </ul>
+</div>
